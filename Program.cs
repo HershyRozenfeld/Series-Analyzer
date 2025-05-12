@@ -11,6 +11,11 @@ namespace project_1
         static void Main(string[] args)
         {
         }
+        static string[] arrInput()
+        {
+            //string[] strArr = new string[10];
+            //return strArr;
+        }
         static int max(int[] intArr)
         {
             int bigest = 0;
