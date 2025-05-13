@@ -37,7 +37,7 @@ namespace project_1
                         singleNumPrinter(min(intArr));
                         break;
                     case "g":
-                        singleNumPrinter(avg(intArr));
+                        doubleNumPrinter(avg(intArr));
                         break;
                     case "h":
                         singleNumPrinter(count(intArr));
@@ -123,33 +123,68 @@ namespace project_1
         }
         static int max(int[] intArr)
         {
-            int bigest = 0;
+            int bigest = intArr[0];
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                if (intArr[i] > bigest)
+                {
+                    bigest = intArr[i];
+                }
+            }
             return bigest;
         }
         static int min(int[] intArr)
         {
-            int smallest = 0;
+            int smallest = intArr[0];
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                if (intArr[i] < smallest)
+                {
+                    smallest = intArr[i];
+                }
+            }
             return smallest;
         }
         static int sum(int[] intArr)
         {
             int sum = 0;
+            foreach (int num in intArr)
+            {
+                sum += num;
+            }
             return sum;
         }
-        static int avg(int[] intArr)
+        static double avg(int[] intArr)
         {
-            int avg = 0;
+            double avg;
+            int sumArr = sum(intArr);
+            avg = Convert.ToDouble(intArr.Length) / Convert.ToDouble(sumArr);
             return avg;
         } 
         static int count(int[] intArr)
         {
             int count = 0;
+            foreach (int num in intArr)
+            {
+                count++;
+            }
             return count;
         }
         static int[] ascendingSort(int[] intArr)
         {
-            int[] sortedArr = new int[intArr.Length];
-            return sortedArr;
+            for (int i = 0; i < intArr.Length-1; i++)
+            {
+                for (int j = i + 1; j < intArr.Length; j++)
+                {
+                    if (intArr[i] > intArr[j])
+                    {
+                        int temp = intArr[i];
+                        intArr[i] = intArr[j];
+                        intArr[j] = temp;
+                    }
+                }
+            }
+            return intArr;
         }
         static int[] revers(int[] intArr)
         {
@@ -171,6 +206,12 @@ namespace project_1
             return;
         }
         static void singleNumPrinter(int num)
+        {
+            Console.WriteLine("The result is: ");
+            Console.WriteLine(num + " ");
+            return;
+        }
+        static void doubleNumPrinter(double num)
         {
             Console.WriteLine("The result is: ");
             Console.WriteLine(num + " ");
